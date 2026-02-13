@@ -1,1 +1,96 @@
-# movie-database
+![logo](/template/res/logo.png)
+
+# Individuellt examensarbete - MyMovieDatabase
+
+## Introduktion
+
+Hej där, kodmästare! Det är dags att sätta på våra virtuella regissörskepsar och börja rulla kameran på vår egen version av en klassisk filmindustri-epos - vår alldeles egna filmdatabas! Vi har tränat, vi har kodat och nu är det dags att visa världen vad vi kan åstadkomma med våra HTML-, CSS-, och framförallt JavaScript-färdigheter. Så spänn fast era säkerhetsbälten och förbered er på en episk resa genom bland annat funktioner, objekt, eventhantering och API-anrop. Tillsammans kommer vi att skapa en filmälskares våta dröm och bevisa att när det gäller kod, så finns det - likt i filmens värld - inga gränser för vad vi kan uppnå!
+
+## Instruktioner
+
+### Uppgift
+
+Ditt uppdrag är att skapa en webbapplikation som liknar IMBD (Internet Movie Database) där användare kan söka efter filmer, visa detaljerad information om filmer och lista sina favoritfilmer med mera.
+
+I repot hittar ni mappen **template** innehållandes startkod som ni får använda er av. Ni får jättegärna hitta på en egen design också, men i template-mappen hittar ni ett tema med filer osv som ni kan köra vidare på om så önskas. Väljer ni att skapa någonting eget så förväntar jag mig att ambitionsnivån rent stilistiskt MINST når upp till den applikation som visas under genomgången.
+
+### Tekniska Krav
+
+#### För godkänt
+
+- På startsidan MÅSTE ni presentera 5 slumpmässiga trailers, samt 20 st slumpmässigt rekommenderade filmer. Dessa läser ni in från [mitt filmAPI](https://santosnr6.github.io/Data/favoritemovies.json).
+- Det MÅSTE finnas sökfunktionalitet. Vid sökning skall strängen från inputfältet användas för att göra en **bred** sökning i [OMDB-APIet](https://www.omdbapi.com/).
+- Sökresultaten MÅSTE presenteras för användaren på ett tillfredsställande sätt där ni exempelvis kan skapa ett "kort" per film innehållandes titeln, samt en poster (Det är också tillåtet att istället för kort presentera sökresultaten i en automatisk lista med förslag på den input som användaren skriver in i sökfältet).
+- Vid klick på ett sökresultat MÅSTE ni göra en ny, mer **specifik** sökning på [OMDB-APIet](https://www.omdbapi.com/), baserat på den klickade filmens ImdbID. (Mer info om de olika sökningarna för APIet kommer nedan). Detta anrop kommer returnera mer detaljerad information om filmen som ni skall presentera för användaren på en egen sida (movie.html).
+- Ni måste skapa funktionalitet för att kunna spara ner filmer i en favoritlista/watchlist, samt visa upp dessa på ett tillfredsställande sätt.
+- Ni MÅSTE koda tillgängligt, dvs. alla bilder måste ha ALT-taggar, överanvänd inte DIV-element där de inte fyller någon funktion osv. Er sida kommer att granskas med ett tillgänglighetsverktyg (se nedan), där onödiga övertramp och Errors inte kommer att godkännas.
+- Ni MÅSTE utöver _script.js_, _caroussel.js_ och _api.js_ skapa ytterligare 2 moduler som ni använder i ert kodande. Jag har lagt in 3 förslag, men dessa är inga måsten.
+- Ni MÅSTE använda er av felhantering vid era API-anrop.
+- Ni MÅSTE skapa en responsiv webbplats hela vägen ner till mobilvy. Inga element får sticka ut över kanter, eller utanför skärmen. Ni får dölja karusellen på mindre skärmar.
+- Er webbplats MÅSTE _se bra ut_ (ni får använda mitt template).
+
+#### För Väl Godkänt
+
+- Utöka ert användande av moduler till att utöver de som ni får på förhand skapa minst 5 st egna. Här kommer jag gå på hur väl uppdelad och skalbar er kod är (Exempel som inte kommer godkännas: att man gör api-anrop från en annan modul än _api.js_).
+- Välskiven kod, med indenteringar!
+
+### Verktyg/Resurser
+
+#### santosnr6.github.io
+
+Mitt eget film-API med våra egna rekommendationer är endast till för att ladda upp de inledande filmerna, samt trailers på startsidan innan användaren börjar interagera med sidan. Notera att APIet innehåller nycklar som överensstämmer med OMDBs API vilket gör att ni kan återanvända funktioner för att hantera datan både från mitt API och OMDBs.
+
+```
+GET https://santosnr6.github.io/Data/favoritemovies.json
+```
+
+#### OMDB
+
+För att använda er av OMDBs film-API så behöver ni först av allt ansöka om en api-nyckel. Detta [hittar ni gratis här](https://www.omdbapi.com/apikey.aspx).
+OMDBs film-API består av två olika typer av sökningar, en bred och en specifik. Den breda sökningen görs med en sträng som parameter och kommer att returnera de 10 första/bästa träffarna. Den breda sökningen innehåller inte särskilt mycket information utan bara det mest väsentliga som titel, poster, imdb-ID mm. URL för den breda sökningen:
+
+```
+GET http://www.omdbapi.com/?apikey=[yourkey]&s=[söksträng]
+```
+
+För att göra den mer specifika sökningen behöver ni använda er av det imdb-ID som den första sökningen genererade. Denna specifika sökning kommer att returnera mer specifik information om en specifik film. URL för den specifika sökningen:
+
+```
+GET http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
+```
+
+#### Postman / Insomnia
+
+Postman och Insomnia är kraftfulla verktyg för att testa GET-anrop mot APIer på grund av dess intuitiva gränssnitt som möjliggör enkel och snabb hantering av HTTP-förfrågningar och svar. De ger användarna möjlighet att skicka anpassade GET-förfrågningar till olika endpoints, visa svar i läsbar form och analysera svarsstatus, header och body för att validera API-beteende. Nedladdningslänk för Postman [hittar ni här](https://www.postman.com/downloads/), och för Insomnia [hittar ni här](https://insomnia.rest/).
+
+#### WAVE Evaluation Tool
+
+WAVE evaluation tool är användbart för att kontrollera tillgänglighet eftersom det identifierar tillgänglighetsproblem på webbsidor och ger användare detaljerade rapporter och rekommendationer för att förbättra tillgängligheten för människor med funktionsnedsättningar, vilket möjliggör för webbutvecklare att skapa mer tillgängliga och användarvänliga webbsidor. Installationslänk för tillägget [hittar ni här](https://chromewebstore.google.com/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh).
+
+#### Template
+
+I mappen finner ni även en template som ni får använda er av om ni vill. I denna har jag kodat upp basen för applikationen, dess färgtema, funktionalitet för en karusell med trailers osv. Ni får jättegärna använda er av denna, men det är även tillåtet att skapa ert eget projekt från scratch. Kom dock ihåg att er applikation MÅSTE vara visuellt acceptabel.
+
+#### AI
+
+I denna kurs, som i alla kodkurser, är det tillåtet att tillämpa användandet av AI förutsatt att det sker på korrekt sätt. Du får använda AI-verktyg för att inspireras, strukturera idéer, felsöka, optimera osv., men all användning skall vara transparent. Om du stoppar in ex. en AI-genererad _Fisher Yates-shuffle_ i din kod, så behöver du kommentera in vad kodsnutten gör, samt varifrån den kommer. Du **får inte** använda AI till att koda upp din applikation, och du ansvarar för **all** kod du lämnar in.
+
+### Inlämning
+
+Inlämning av länken till ert publika Git-repo skall ske senast kl 23:59, torsdagen den 26 februari på Azomo.
+
+### VMA
+
+I vanliga fall är det ingen kanonidé att lägga upp sina API-nycklar på Github då dessa är privata, och kan leda till att någon annan gör slut på era gratisanrop. I examinationer där vi använder API-nyckel vill jag dock att ni ändå lägger in API-nyckeln i er kod som pushas, då det inte är hållbart att jag skall behöva kopiera och klistra in 54 st API-nycklar för att få allas kod att fungera (rättningen är redan tillräckligt tråkig som den är). Är ni rädda för att pusha era nycklar så kan ni göra era repon privata istället. Glöm dock inte att bjuda in mig isåfall.
+
+### Halvtidsuppföljning
+
+Fredagen den 20e februari kommer vi ha en liten halvtidsuppföljning, där vi samlas i grupper om ca 5 studerande. På dessa möten får man visa upp hur långt man hunnit, samt prata om vad som känts kul/svårt/lätt osv. Ett sätt för er att titta på andras lösningar och få lite inspiration. Ni bokar upp er för dessa möten [här](https://docs.google.com/spreadsheets/d/1JeVa-X85TEOsd7s6dsmtHQpEsA_yVO_kHkvpOKLxY7k/edit?usp=sharing).
+
+### Muntor
+
+I denna examination kommer jag under måndagen vecka 2 meddela 5 studerande som slumpmässigt valts ut till att även köra en muntlig examination fredagen den 27/2. Detta är ingenting att vara orolig för, utan så länge som ni inte låtit AI koda upp applikationen åt er, och har hyffsat koll på den kod ni lämnar in så är det superlugnt.
+
+### Examinering
+
+Denna gång bedöms ni endast på er inlämning. Ingen presentation eller seminarium.
