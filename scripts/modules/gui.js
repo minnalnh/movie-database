@@ -13,9 +13,9 @@ export function renderMovies() {
     }
 }
 
-function createMovieItem(movie) {
+function createMovieItem(movie) { // hämta ut mer info än bara titeln
     const movieRef = createElement('p');
-    addClass(movieRef, 'recommend-section__info');
+    addClass(movieRef, 'recmnd-section__info');
     movieRef.textContent = movie.Title;
         console.log(movieRef)
 
