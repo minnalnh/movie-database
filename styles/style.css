@@ -1,6 +1,20 @@
 @import url('./carousel.css');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/*------*/
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Gafata&family=Glass+Antiqua&display=swap');
+
+:root {
+    --blush: #FF8A8C;
+    --wood: #27211E;
+    --gold: #FFF79A;
+    
+    --glass-antiqua: 'Glass Antiqua', serif;
+    --gafata: 'Gafata', sans-serif;
+    --corben: 'Corben', serif;
+}
+/*------*/
+
 /* Variables */
 :root {
     --header-grey: #121212;
@@ -18,8 +32,16 @@
 }
 
 body {
-    background-color: var(--primary-bg);
+    background-color: var(--wood);
     max-width: 100%;
+}
+
+.line {
+    color: var(--gold);
+}
+
+.header__line {
+    margin-top: .5rem;
 }
 
 /* Utils */
@@ -37,7 +59,6 @@ body {
 
 /* Header */
 .header {
-    background-color: var(--header-grey);
     width: 100%;
     padding: 1.5rem;
     z-index: 999;
@@ -68,6 +89,7 @@ body {
 }
 
 .header__form-btn {
+    background-color: var(--blush);
     border-radius: 0 2rem 2rem 0;
     width: 5rem;
     border: none;
@@ -77,8 +99,27 @@ body {
 .header__fav-btn {
     text-decoration: none;
     font-size: 1.5rem;
-    color: var(--text-yellow);
+    color: white;
     background: none;
     border: none;
     cursor: pointer;
+}
+
+.recmnd {
+    .recmnd__wrapper {
+        .recmnd__title {
+            color: white;
+            font-family: var(--glass-antiqua);
+            text-align: center;
+        }
+        .recmnd__line {
+
+        }
+        .recmnd__section {
+
+            .recmnd-section__info {
+                color: white; /* funkar inte */
+            }
+        }
+    }
 }
