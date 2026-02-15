@@ -97,29 +97,41 @@ body {
 }
 
 .header__fav-btn {
+    font-family: var(--corben);
     text-decoration: none;
     font-size: 1.5rem;
-    color: white;
+    color: var(--gold);
     background: none;
     border: none;
     cursor: pointer;
 }
 
-.recmnd {
-    .recmnd__wrapper {
-        .recmnd__title {
-            color: white;
-            font-family: var(--glass-antiqua);
-            text-align: center;
-        }
-        .recmnd__line {
 
-        }
-        .recmnd__section {
+.recmnd__title {
+    color: var(--gold);
+    font-family: var(--glass-antiqua);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
 
-            .recmnd-section__info {
-                color: white; /* funkar inte */
-            }
-        }
-    }
+.recmnd-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.movie {
+    border: 1px solid var(--gold);
+}
+
+.movie__poster {
+    padding-bottom: 1rem;
+}
+
+.movie__title, .movie__id {
+    color: white;
+    font-family: var(--gafata);
+    font-weight: 400; 
 }
