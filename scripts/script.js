@@ -1,8 +1,10 @@
 import { getElement } from './utils/domUtils.js';
 import { fetchRecommendedMovies } from './modules/api.js';
+// import { fetchMovieSearch } from './modules/api.js';
+import { fetchMovieData } from './modules/api.js';
 import { getMovies, pushMovies } from './data/movies.js';
 import { renderMovies } from './modules/gui.js';
-import { renderTrailer } from './modules/caroussel.js';
+import { carousselSetup } from './modules/carousselSetup.js';
 
 if(window.location.pathname === '/' || window.location.pathname.includes ('index.html')) {
     console.log('index.html');
@@ -27,13 +29,6 @@ async function pageSetup() {
 
     carousselSetup(movies);
     // searchSetup(movies);
-}
-
-async function carousselSetup(movies) {
-    for(let i = 0; i < 5; i++) {
-        const num = Math.floor(Math.random() * 5);
-        renderTrailer(movies[i], num);
-    }
 }
 
 /*
