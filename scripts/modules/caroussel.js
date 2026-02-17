@@ -5,6 +5,16 @@ export function renderTrailer(movie, num) {
     iFrameRef.src = movie.Trailer_link;
     document.querySelector(`.trailers__container`).appendChild(iFrameRef);
 
+    // attribut som förhindrar att detta felmeddelande dyker upp i konsollen:
+    // "Permission policy 'Fullscreen' check failed for document with origin 'https://www.youtube.com'."
+    // tog hjälp av ChatGPT för att skriva följande:
+    iFrameRef.setAttribute(
+        'allow',
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen'
+    );
+
+    iFrameRef.setAttribute('allowfullscreen', '');
+
     const trailerList = document.querySelectorAll(`.trailers__video`);
     const trailerArray = Array.from(trailerList);
     
