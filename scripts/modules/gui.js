@@ -7,42 +7,22 @@ export function renderMovies() {
     const sectionRef = getElement('#recommendSection');
     sectionRef.innerHTML = '';
 
+    const moviesTemp = [...movies];
     const displayedMovies = [];
-
-    for(let i = 0; i < movies.length; i++) {
-        const movieRef = createMovieItem(movies[i]); // varje film
-
-        for(let i = 10 -1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i));
-            let k = movies[i];
-            movies[i] = movies[j];
-            movies[j] = k;
-
-            displayedMovies.push(movies);
-        }
-
-        //sectionRef.appendChild(movieRef);
-    }
-
+    
     for(let i = 0; i < 10; i++) {
-        sectionRef.appendChild(displayedMovies[i]);
+
+        const randomIndex = Math.floor(Math.random() * moviesTemp.length);
+        const randomMovie = moviesTemp.splice(randomIndex, 1)[0];
+        displayedMovies.push(randomMovie);
+
+        const movieRef = createMovieItem(displayedMovies[i]);
+
+        sectionRef.appendChild(movieRef);
     }
 }
-/*
-function fisherYates(movies) {
-    const displayedMovies = [];
 
-    for(let i = 10 -1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i));
-        let k = movies[i];
-        movies[i] = movies[j];
-        movies[j] = k;
 
-        displayedMovies.push(movies);
-    }
-    return displayedMovies;
-}
-*/
 function createMovieItem(movie) {
     const movieRef = createElement('article');
     addClass(movieRef, 'movie');
