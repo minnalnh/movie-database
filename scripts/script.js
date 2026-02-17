@@ -30,9 +30,9 @@ async function pageSetup() {
 }
 
 async function carousselSetup(movies) {
-    for(let movie of movies) {
+    for(let i = 0; i < 5; i++) {
         const num = Math.floor(Math.random() * 5);
-        renderTrailer(movie, num);
+        renderTrailer(movies[i], num);
     }
 }
 
