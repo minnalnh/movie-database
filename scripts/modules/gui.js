@@ -10,8 +10,8 @@ export function renderMovies() {
     const moviesTemp = [...movies];
     const displayedMovies = [];
     
-    for(let i = 0; i < 10; i++) {
-
+    for(let i = 0; i < 20; i++) {
+        // algoritm tagen från week-7-lecture-9-feb
         const randomIndex = Math.floor(Math.random() * moviesTemp.length);
         const randomMovie = moviesTemp.splice(randomIndex, 1)[0];
         displayedMovies.push(randomMovie);
