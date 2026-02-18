@@ -1,5 +1,10 @@
-export default function getMovieCard(movie) {
-    
+import { fetchMovieData } from '../modules/api.js';
+
+getMovieCard();
+
+export async function getMovieCard() {
+    const movies = await fetchMovieData();
+    console.log(movies);
     return `
 
     `;

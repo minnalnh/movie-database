@@ -8,6 +8,7 @@
     --blush: #FF8A8C;
     --wood: #27211E;
     --gold: #FFF79A;
+    --emerald: #50C878;
     
     --glass-antiqua: 'Glass Antiqua', serif;
     --gafata: 'Gafata', sans-serif;
@@ -89,7 +90,7 @@ body {
 }
 
 .header__form-btn {
-    background-color: var(--blush);
+    background-color: var(--emerald) !important; /* SE ÖVER */
     border-radius: 0 2rem 2rem 0;
     width: 5rem;
     border: none;

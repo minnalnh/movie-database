@@ -1,4 +1,3 @@
-import getMovieCard from '../components/movieCard.js';
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
 // import { movieDataSetup } from './movieDataSetup.js';
