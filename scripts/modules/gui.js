@@ -1,4 +1,3 @@
-import getMovieCard from '../components/movieCard.js';
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
 // import { movieDataSetup } from './movieDataSetup.js';
@@ -37,7 +36,7 @@ function createMovieItem(movie) {
     movieRef.addEventListener('click', () => {
         location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
     });
-
+    
     return movieRef;
 }
 

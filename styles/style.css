@@ -4,24 +4,18 @@
 /*------*/
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Gafata&family=Glass+Antiqua&display=swap');
 
-:root {
-    --blush: #FF8A8C;
-    --wood: #27211E;
-    --gold: #FFF79A;
-    
-    --glass-antiqua: 'Glass Antiqua', serif;
-    --gafata: 'Gafata', sans-serif;
-    --corben: 'Corben', serif;
-}
 /*------*/
 
 /* Variables */
 :root {
-    --header-grey: #121212;
-    --primary-bg: #000000;
-    --primary-white: #ffffff;
-    --primary-grey: #1A1A1A;
-    --text-yellow: #F5C518;
+    --blush: #FF8A8C;
+    --wood: #27211E;
+    --gold: #FFF79A;
+    --emerald: #50C878;
+    
+    --glass-antiqua: 'Glass Antiqua', serif;
+    --gafata: 'Gafata', sans-serif;
+    --corben: 'Corben', serif;
 }
 
 /* Base */
@@ -89,7 +83,7 @@ body {
 }
 
 .header__form-btn {
-    background-color: var(--blush);
+    background-color: var(--emerald) !important; /* SE ÖVER */
     border-radius: 0 2rem 2rem 0;
     width: 5rem;
     border: none;
@@ -125,6 +119,7 @@ body {
 
 .movie {
     border: 1px solid var(--gold);
+
 }
 
 .movie__poster {
@@ -135,4 +130,20 @@ body {
     color: white;
     font-family: var(--gafata);
     font-weight: 400; 
+}
+
+.movie__poster {
+    display: flex;
+    justify-self: center;
+}
+
+.movie__title {
+    font-family: var(--corben);
+    text-align: center;
+}
+
+.movie__info {
+    font-family: var(--gafata);
+    color: white;
+    padding-left: 2rem;
 }
