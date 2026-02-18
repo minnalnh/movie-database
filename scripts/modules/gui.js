@@ -18,9 +18,7 @@ export function renderMovies() {
 
         const movieRef = createMovieItem(displayedMovies[i]);
 
-        sectionRef.appendChild(movieRef);
-
-        
+        sectionRef.appendChild(movieRef); 
     }
 }
 
@@ -40,8 +38,10 @@ function createMovieItem(movie) {
     return movieRef;
 }
 
+export function backToHomePage() {
+    const btnRef = getElement('.back-button');
 
-// http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
-
-
-// // http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
+    btnRef.addEventListener('click', () => {
+        location.href = '../index.html';
+    });
+}
