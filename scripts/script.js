@@ -1,7 +1,6 @@
 import { getElement } from './utils/domUtils.js';
 import { fetchRecommendedMovies } from './modules/api.js';
 // import { fetchMovieSearch } from './modules/api.js';
-import { fetchMovieData } from './modules/api.js';
 import { getMovies, pushMovies } from './data/movies.js';
 import { renderMovies } from './modules/gui.js';
 import { carousselSetup } from './modules/carousselSetup.js';
