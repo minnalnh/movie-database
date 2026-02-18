@@ -4,6 +4,9 @@
 /*------*/
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&family=Gafata&family=Glass+Antiqua&display=swap');
 
+/*------*/
+
+/* Variables */
 :root {
     --blush: #FF8A8C;
     --wood: #27211E;
@@ -13,16 +16,6 @@
     --glass-antiqua: 'Glass Antiqua', serif;
     --gafata: 'Gafata', sans-serif;
     --corben: 'Corben', serif;
-}
-/*------*/
-
-/* Variables */
-:root {
-    --header-grey: #121212;
-    --primary-bg: #000000;
-    --primary-white: #ffffff;
-    --primary-grey: #1A1A1A;
-    --text-yellow: #F5C518;
 }
 
 /* Base */
@@ -126,6 +119,7 @@ body {
 
 .movie {
     border: 1px solid var(--gold);
+
 }
 
 .movie__poster {
@@ -136,4 +130,20 @@ body {
     color: white;
     font-family: var(--gafata);
     font-weight: 400; 
+}
+
+.movie__poster {
+    display: flex;
+    justify-self: center;
+}
+
+.movie__title {
+    font-family: var(--corben);
+    text-align: center;
+}
+
+.movie__info {
+    font-family: var(--gafata);
+    color: white;
+    padding-left: 2rem;
 }

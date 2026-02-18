@@ -36,7 +36,7 @@ function createMovieItem(movie) {
     movieRef.addEventListener('click', () => {
         location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
     });
-
+    
     return movieRef;
 }
 

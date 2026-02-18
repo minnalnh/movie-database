@@ -9,7 +9,10 @@ export async function fetchMovieSearch() {
 }
 */
 export async function fetchMovieData() {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`);
+    const queryStr = window.location.search;
+    const imdbID = queryStr.substring(29);
+
+    const response = await fetch(`http://www.omdbapi.com/?apikey=52ddd3cb&plot=full&i=${imdbID}`);
     return await response.json();
 }
 
