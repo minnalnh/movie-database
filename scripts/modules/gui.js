@@ -1,7 +1,7 @@
 import getMovieCard from '../components/movieCard.js';
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
-import { movieDataSetup } from './movieDataSetup.js';
+// import { movieDataSetup } from './movieDataSetup.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -21,7 +21,7 @@ export function renderMovies() {
 
         sectionRef.appendChild(movieRef);
 
-        movieRef.addEventListener('click', movieDataSetup);
+        
     }
 }
 
@@ -33,6 +33,16 @@ function createMovieItem(movie) {
         <img src=${movie.Poster} alt="Poster – ${movie.Title}" class="movie__poster">
         <h3 class="movie__title">${movie.Title}</h3>
     `;
+    
+    movieRef.addEventListener('click', () => {
+        location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+    });
 
     return movieRef;
-} 
+}
+
+
+// http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
+
+
+// // http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
