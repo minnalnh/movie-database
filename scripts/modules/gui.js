@@ -50,9 +50,10 @@ export function backToHomePage() {
 export async function searchListener() {
     const searchRef = getElement('#searchInput');
     
-    searchRef.addEventListener('input', (event) => {
+    searchRef.addEventListener('input', async (event) => {
         const searchInput = searchRef.value;
-        const movies = fetchMovieSearch(searchInput);
+        const movies = await fetchMovieSearch(searchInput);
+        if(movies !== undefined) console.log(movies);
         //const matching = movies.filter(movie => movie.name.toLowerCase().includes(event.target.value.toLowerCase()));
     });
 }
