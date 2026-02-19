@@ -2,7 +2,7 @@ import { getElement } from './utils/domUtils.js';
 import { fetchRecommendedMovies } from './modules/api.js';
 // import { fetchMovieSearch } from './modules/api.js';
 import { getMovies, pushMovies } from './data/movies.js';
-import { renderMovies } from './modules/gui.js';
+import { renderMovies, searchListener } from './modules/gui.js';
 import { carousselSetup } from './modules/carousselSetup.js';
 
 if(window.location.pathname === '/' || window.location.pathname.includes ('index.html')) {
@@ -22,16 +22,12 @@ pageSetup();
 
 async function pageSetup() {
     const movies = await fetchRecommendedMovies();
+
     pushMovies(movies);
     getMovies();
     renderMovies();
 
     carousselSetup(movies);
-    // searchSetup(movies);
-}
 
-/*
-async function searchSetup(movies) {
-    const listRef = getElement('.');
+    searchListener();
 }
-*/

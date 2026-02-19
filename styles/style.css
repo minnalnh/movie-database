@@ -75,7 +75,6 @@ body {
 }
 
 .header__input {
-    width: 50%;
     padding: 1rem;
     border-radius: 2rem 0 0 2rem;
     border: none;
@@ -84,9 +83,38 @@ body {
 .header__form-btn {
     background-color: var(--emerald) !important; /* SE ÖVER */
     border-radius: 0 2rem 2rem 0;
+    height: 100%;
     width: 5rem;
     border: none;
     cursor: pointer;
+}
+
+.search-list-container {
+    position: relative;
+    width: 100%;
+}
+
+.section__search-list {
+    position: absolute;
+    top: 100%;
+    list-style-type: none;
+    border: 1px solid white;
+    border-top: none;
+    width: 50%;
+}
+
+.section__search-item {
+    color: black;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.section__search-item:nth-child(odd) {
+    background-color: rgb(240, 240, 240);
+}
+
+.section__search-item:hover {
+    background-color: rgb(220, 220, 220);
 }
 
 .header__fav-btn {
