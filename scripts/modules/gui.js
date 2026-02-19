@@ -1,6 +1,7 @@
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
-// import { movieDataSetup } from './movieDataSetup.js';
+//import { searchSetup } from './searchSetup.js';
+import { fetchMovieSearch } from './api.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -45,3 +46,19 @@ export function backToHomePage() {
         location.href = '../index.html';
     });
 }
+
+export async function searchListener() {
+    const searchRef = getElement('#searchInput');
+    
+    searchRef.addEventListener('input', (event) => {
+        const searchInput = searchRef.value;
+        const movies = fetchMovieSearch(searchInput);
+        //const matching = movies.filter(movie => movie.name.toLowerCase().includes(event.target.value.toLowerCase()));
+    });
+}
+/*
+const listRef = getElement('#searchList');
+    console.log(dataSearch);
+    const searchRef = getElement('#searchInput');
+    const matching = dataSearch.filter(movie => movie.Title.includes(event.target.value));
+    */
