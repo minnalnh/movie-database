@@ -7,10 +7,10 @@ export function renderTrailer(movie, num) {
 
     // attribut som förhindrar att detta felmeddelande dyker upp i konsollen:
     // "Permission policy 'Fullscreen' check failed for document with origin 'https://www.youtube.com'."
-    // tog hjälp av ChatGPT för att skriva följande:
+    // tog hjälp av https://github.com/workadventure/workadventure/issues/3827
     iFrameRef.setAttribute(
         'allow',
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen'
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen'
     );
 
     iFrameRef.setAttribute('allowfullscreen', '');

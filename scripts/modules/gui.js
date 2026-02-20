@@ -50,10 +50,16 @@ export function backToHomePage() {
 export async function searchListener() {
     const searchRef = getElement('#searchInput');
     
-    searchRef.addEventListener('input', (event) => {
+    searchRef.addEventListener('input', async (event) => {
         const searchInput = searchRef.value;
-        const movies = fetchMovieSearch(searchInput);
-        //const matching = movies.filter(movie => movie.name.toLowerCase().includes(event.target.value.toLowerCase()));
+        const movies = await fetchMovieSearch(searchInput);
+
+        if(movies) {
+            if(movies.length > 0) {
+                const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
+                console.log(matching);
+            }
+        }
     });
 }
 /*

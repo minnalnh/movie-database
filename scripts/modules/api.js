@@ -10,7 +10,7 @@ export async function fetchRecommendedMovies() {
 export async function fetchMovieSearch(searchInput) {
     const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`);
     const data = await response.json();
-    if(data.Response === 'True') searchSetup(data.Search);
+    if(data.Response === 'True') return data.Search;
 }
 /*
 
