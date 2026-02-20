@@ -1,12 +1,41 @@
-import { getElement } from '../utils/domUtils.js';
+import { getElement, createElement } from '../utils/domUtils.js';
+import { fetchMovieSearch } from './api.js';
 
-export async function searchSetup(movieSearch) {
+export async function searchSetup() {
+    const apiKey = '52ddd3cb';
     const listRef = getElement('#searchList');
-    console.log(movieSearch);
     const searchRef = getElement('#searchInput');
+    
+    searchRef.addEventListener('input', async (event) => {
+        const searchInput = searchRef.value;
+        const searchBtnRef = getElement('#searchBtn');
+        const movies = await fetchMovieSearch(searchInput);
 
-    searchRef.addEventListener('input', (event) => {
-        const matching = movieSearch.filter(movie => movie.Title.includes(event.target.value));
-        //console.log(matching);
+        if(movies) {
+            if(movies.length > 0) {
+                const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
+                //console.log(matching);
+                listRef.innerHTML = '';
+
+                for(let movie of matching) {
+                    const listItemRef = createElement('li');
+                    listItemRef.classList.add('section__search-item');
+                    listItemRef.textContent = movie.Title;
+                    listRef.appendChild(listItemRef);
+
+                    listRef.addEventListener('click', (event) => {
+                        searchRef.value = event.target.textContent;
+                        listRef.innerHTML = '';
+                    });
+                }
+            }
+        } else if(searchInput === '') {
+            listRef.innerHTML = '';
+        }
+
+        searchBtnRef.addEventListener('click', (event) => {
+            event.preventDefault();
+            location.href = `/pages/search.html?apikey=${apiKey}&s=${searchInput}`;
+        });
     });
 }

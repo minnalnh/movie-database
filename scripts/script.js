@@ -2,8 +2,9 @@ import { getElement } from './utils/domUtils.js';
 import { fetchRecommendedMovies } from './modules/api.js';
 // import { fetchMovieSearch } from './modules/api.js';
 import { getMovies, pushMovies } from './data/movies.js';
-import { renderMovies, searchListener } from './modules/gui.js';
+import { renderMovies } from './modules/gui.js';
 import { carousselSetup } from './modules/carousselSetup.js';
+import { searchSetup } from './modules/searchSetup.js';
 
 if(window.location.pathname === '/' || window.location.pathname.includes ('index.html')) {
     console.log('index.html');
@@ -29,5 +30,5 @@ async function pageSetup() {
 
     carousselSetup(movies);
 
-    searchListener();
+    searchSetup();
 }
