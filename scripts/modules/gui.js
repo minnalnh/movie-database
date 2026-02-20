@@ -53,8 +53,13 @@ export async function searchListener() {
     searchRef.addEventListener('input', async (event) => {
         const searchInput = searchRef.value;
         const movies = await fetchMovieSearch(searchInput);
-        if(movies !== undefined) console.log(movies);
-        //const matching = movies.filter(movie => movie.name.toLowerCase().includes(event.target.value.toLowerCase()));
+
+        if(movies) {
+            if(movies.length > 0) {
+                const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
+                console.log(matching);
+            }
+        }
     });
 }
 /*
