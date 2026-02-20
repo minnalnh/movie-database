@@ -1,7 +1,5 @@
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
-//import { searchSetup } from './searchSetup.js';
-import { fetchMovieSearch } from './api.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -46,46 +44,3 @@ export function backToHomePage() {
         location.href = '../index.html';
     });
 }
-
-export async function searchListener() {
-    const listRef = getElement('#searchList');
-    const searchRef = getElement('#searchInput');
-    
-    searchRef.addEventListener('input', async (event) => {
-        const searchInput = searchRef.value;
-        const searchBtnRef = getElement('#searchBtn');
-        const movies = await fetchMovieSearch(searchInput);
-
-        if(movies) {
-            if(movies.length > 0) {
-                const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
-                //console.log(matching);
-                listRef.innerHTML = '';
-
-                for(let movie of matching) {
-                    const listItemRef = createElement('li');
-                    listItemRef.classList.add('section__search-item');
-                    listItemRef.textContent = movie.Title;
-                    listRef.appendChild(listItemRef);
-
-                    listRef.addEventListener('click', (event) => {
-                        searchRef.value = event.target.textContent;
-                        listRef.innerHTML = '';
-                    });
-                }
-            }
-        } else if(searchInput === '') {
-            listRef.innerHTML = '';
-        }
-
-        searchBtnRef.addEventListener('click', (event) => {
-            event.preventDefault();
-        });
-    });
-}
-/*
-const listRef = getElement('#searchList');
-    console.log(dataSearch);
-    const searchRef = getElement('#searchInput');
-    const matching = dataSearch.filter(movie => movie.Title.includes(event.target.value));
-    */
