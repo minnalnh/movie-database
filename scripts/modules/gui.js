@@ -48,18 +48,39 @@ export function backToHomePage() {
 }
 
 export async function searchListener() {
+    const listRef = getElement('#searchList');
     const searchRef = getElement('#searchInput');
     
     searchRef.addEventListener('input', async (event) => {
         const searchInput = searchRef.value;
+        const searchBtnRef = getElement('#searchBtn');
         const movies = await fetchMovieSearch(searchInput);
 
         if(movies) {
             if(movies.length > 0) {
                 const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
-                console.log(matching);
+                //console.log(matching);
+                listRef.innerHTML = '';
+
+                for(let movie of matching) {
+                    const listItemRef = createElement('li');
+                    listItemRef.classList.add('section__search-item');
+                    listItemRef.textContent = movie.Title;
+                    listRef.appendChild(listItemRef);
+
+                    listRef.addEventListener('click', (event) => {
+                        searchRef.value = event.target.textContent;
+                        listRef.innerHTML = '';
+                    });
+                }
             }
+        } else if(searchInput === '') {
+            listRef.innerHTML = '';
         }
+
+        searchBtnRef.addEventListener('click', (event) => {
+            event.preventDefault();
+        });
     });
 }
 /*
