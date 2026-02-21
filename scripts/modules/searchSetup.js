@@ -1,5 +1,6 @@
 import { getElement, createElement } from '../utils/domUtils.js';
 import { fetchMovieSearch } from './api.js';
+import { searchedMovies } from '../components/searchedMovies.js';
 
 export async function searchSetup() {
     const apiKey = '52ddd3cb';
@@ -22,20 +23,25 @@ export async function searchSetup() {
                     listItemRef.classList.add('section__search-item');
                     listItemRef.textContent = movie.Title;
                     listRef.appendChild(listItemRef);
-
+                    
                     listRef.addEventListener('click', (event) => {
-                        searchRef.value = event.target.textContent;
-                        listRef.innerHTML = '';
+                        const clickedMovieRef = event.target.textContent;
+                        
+                        if(movie.Title === clickedMovieRef) {
+                            location.href = `/pages/movie.html?apikey=${apiKey}&plot=full&i=${movie.imdbID}`;
+                        }
                     });
                 }
+
+
+                searchBtnRef.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    location.href = `/pages/search.html?apikey=${apiKey}&s=${searchInput}`;
+                });
             }
         } else if(searchInput === '') {
             listRef.innerHTML = '';
         }
 
-        searchBtnRef.addEventListener('click', (event) => {
-            event.preventDefault();
-            location.href = `/pages/search.html?apikey=${apiKey}&s=${searchInput}`;
-        });
     });
 }

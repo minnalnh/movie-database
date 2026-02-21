@@ -1,8 +1,14 @@
 import { fetchMovieSearch } from '../modules/api.js';
+import { getElement, createElement } from '../utils/domUtils.js';
 
-export async function searchedMovies(event) {
-    event.preventDefault();
-    const movies = await fetchMovieSearch(searchInput);
+//searchedMovies(matching);
 
-    
+export async function searchedMovies(matching) {
+    location.href = `/pages/search.html?apikey=52ddd3cb&s=${searchInput}`;
+
+    test(matching);
+}
+
+function test(matching) {
+    console.log(matching);
 }
