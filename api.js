@@ -12,14 +12,6 @@ export async function fetchMovieSearch(searchInput) {
     const data = await response.json();
     if(data.Response === 'True') return data.Search;
 }
-
-export async function fetchMovieData() {
-    const queryStr = window.location.search;
-    const imdbID = queryStr.substring(29);
-
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&plot=full&i=${imdbID}`);
-    return await response.json();
-}
 /*
 
 fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`)
@@ -28,6 +20,13 @@ fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`)
     if(data.Response === 'True') return data.Search;
 });
 */
+export async function fetchMovieData() {
+    const queryStr = window.location.search;
+    const imdbID = queryStr.substring(29);
+
+    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&plot=full&i=${imdbID}`);
+    return await response.json();
+}
 
 // bred sökning:
 // GET http://www.omdbapi.com/?apikey=[yourkey]&s=[söksträng]
