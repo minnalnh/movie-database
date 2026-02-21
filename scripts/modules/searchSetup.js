@@ -1,9 +1,9 @@
 import { getElement, createElement } from '../utils/domUtils.js';
 import { fetchMovieSearch } from './api.js';
-import { searchedMovies } from '../components/searchedMovies.js';
+import { searchedMovies } from '../components/searchedMovies.js'; // ska inte behöva ha kvar denna men om jag tar bort den visas inte filmerna som matchar sökresultatet ???
 
 export async function searchSetup() {
-    const apiKey = '52ddd3cb';
+    // const apiKey = '52ddd3cb';
     const listRef = getElement('#searchList');
     const searchRef = getElement('#searchInput');
     
@@ -28,7 +28,7 @@ export async function searchSetup() {
                         const clickedMovieRef = event.target.textContent;
                         
                         if(movie.Title === clickedMovieRef) {
-                            location.href = `/pages/movie.html?apikey=${apiKey}&plot=full&i=${movie.imdbID}`;
+                            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
                         }
                     });
                 }
@@ -36,7 +36,7 @@ export async function searchSetup() {
 
                 searchBtnRef.addEventListener('click', (event) => {
                     event.preventDefault();
-                    location.href = `/pages/search.html?apikey=${apiKey}&s=${searchInput}`;
+                    location.href = `/pages/search.html?apikey=52ddd3cb&s=${searchInput}`;
                 });
             }
         } else if(searchInput === '') {

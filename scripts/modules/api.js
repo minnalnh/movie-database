@@ -1,6 +1,6 @@
 import { searchSetup } from './searchSetup.js';
 
-const apiKey = '52ddd3cb';
+// const apiKey = '52ddd3cb';
 
 export async function fetchRecommendedMovies() {
     const response = await fetch('https://santosnr6.github.io/Data/favoritemovies.json');
@@ -8,7 +8,7 @@ export async function fetchRecommendedMovies() {
 }
 
 export async function fetchMovieSearch(searchInput) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`);
+    const response = await fetch(`http://www.omdbapi.com/?apikey=52ddd3cb&s=${searchInput}`);
     const data = await response.json();
     if(data.Response === 'True') return data.Search;
 }
@@ -17,7 +17,7 @@ export async function fetchMovieData() {
     const queryStr = window.location.search;
     const imdbID = queryStr.substring(29);
 
-    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&plot=full&i=${imdbID}`);
+    const response = await fetch(`http://www.omdbapi.com/?apikey=52ddd3cb&plot=full&i=${imdbID}`);
     return await response.json();
 }
 /*
