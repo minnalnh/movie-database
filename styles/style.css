@@ -151,7 +151,6 @@ body {
 
 .single-movie {
     display: flex;
-    flex-direction: column;
     margin: 1rem;
 }
 
@@ -166,6 +165,10 @@ body {
     cursor: pointer;
 }
 
+.movie-box-1__container {
+    position: relative;
+}
+
 .movie-box-1__poster {
     display: flex;
     justify-self: center;
@@ -176,6 +179,17 @@ body {
 
 .movie__title, .movie-box-1__title {
     text-align: center;
+}
+
+.movie__container {
+    position: relative;
+}
+
+.movie__icon, .movie-box-1__icon {
+    position: absolute;
+    font-size: 2rem;
+    top: .5rem;
+    right: .5rem;
 }
 
 .movie-box-2__info {

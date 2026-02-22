@@ -6,7 +6,10 @@ export async function getMovieCard(movie) {
 
     const cardTemplate = `
         <section class="movie-box-1">
-            <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
+            <section class="movie-box-1__container">
+                <i class="fa-regular fa-heart movie-box-1__icon"></i>
+                <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
+            </section>
             <h2 class="movie-box-1__title">${movie.Title}</h2>
         </section>
         <section class="movie-box-2">
