@@ -5,6 +5,7 @@ import { getMovies, pushMovies } from './data/movies.js';
 import { renderMovies } from './modules/gui.js';
 import { carousselSetup } from './modules/carousselSetup.js';
 import { searchSetup } from './modules/searchSetup.js';
+import { addToFav } from './modules/gui.js';
 
 if(window.location.pathname === '/' || window.location.pathname.includes ('index.html')) {
     console.log('index.html');
@@ -31,4 +32,6 @@ async function pageSetup() {
     carousselSetup(movies);
 
     searchSetup();
+
+    addToFav();
 }

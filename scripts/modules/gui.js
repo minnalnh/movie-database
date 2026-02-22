@@ -26,12 +26,18 @@ function createMovieItem(movie) {
     addClass(movieRef, 'movie');
 
     movieRef.innerHTML = `
-        <img src=${movie.Poster} alt="Poster – ${movie.Title}" class="movie__poster">
+        <section class="movie__container">
+            <i class="fa-regular fa-heart movie__icon" id="movieIcon"></i>
+            <img src=${movie.Poster} alt="Poster – ${movie.Title}" class="movie__poster">
+        </section>
         <h3 class="movie__title">${movie.Title}</h3>
     `;
     
-    movieRef.addEventListener('click', () => {
-        location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+    movieRef.addEventListener('click', (event) => {
+        if(event.target.tagName !== 'I') {
+            localStorage.setItem('activeMovie', JSON.stringify(movie)); // funkar ej
+            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+        }
     });
     
     return movieRef;
@@ -42,5 +48,13 @@ export function backToHomePage() {
 
     btnRef.addEventListener('click', () => {
         location.href = '../index.html';
+    });
+}
+
+export async function addToFav() {
+    const likeBtnRef = getElement('#movieIcon');
+
+    likeBtnRef.addEventListener('click', (event) => {
+        console.log(event.target);
     });
 }
