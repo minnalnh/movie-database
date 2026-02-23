@@ -1,5 +1,6 @@
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
+import { searchSetup } from './searchSetup.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -35,7 +36,6 @@ function createMovieItem(movie) {
     
     movieRef.addEventListener('click', (event) => {
         if(event.target.tagName !== 'I') {
-            localStorage.setItem('activeMovie', JSON.stringify(movie)); // funkar ej
             location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
         }
     });
@@ -51,10 +51,32 @@ export function backToHomePage() {
     });
 }
 
-export async function addToFav() {
-    const likeBtnRef = getElement('#movieIcon');
+export function addToFav() {
+    const movies = document.querySelectorAll('.movie');
+    const likeBtnRefs = document.querySelectorAll('#movieIcon');
 
-    likeBtnRef.addEventListener('click', (event) => {
-        console.log(event.target);
+    for(let likeBtnRef of likeBtnRefs) {
+        likeBtnRef.addEventListener('click', (event) => {
+            
+            if(likeBtnRef.classList.contains('fa-regular')) {
+                likeBtnRef.classList.remove('fa-regular');
+                likeBtnRef.classList.add('fa-solid');
+                
+                // localStorage.setItem('activeMovie', JSON.stringify(movie)); // funkar ej
+
+            } else {
+                likeBtnRef.classList.remove('fa-solid');
+                likeBtnRef.classList.add('fa-regular');
+            }
+            
+        });
+    }
+}
+
+export function goToFavPage() {
+    const favBtnRef = getElement('#favBtn');
+
+    favBtnRef.addEventListener('click', () => {
+        location.href = '../../pages/favorites.html';
     });
 }
