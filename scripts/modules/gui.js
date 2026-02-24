@@ -53,14 +53,6 @@ export function backToHomePage() {
     });
 }
 
-export function goToFavPage() {
-    const favBtnRef = getElement('#favBtn');
-
-    favBtnRef.addEventListener('click', () => {
-        location.href = '../../pages/favorites.html';
-    });
-}
-
 export function likeBtnToggle() {
     const likeBtnRefs = document.querySelectorAll('#movieIcon');
     

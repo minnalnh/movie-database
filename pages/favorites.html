@@ -4,21 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Movie Database - Favorites</title>
-        <link rel="stylesheet" href="./styles/style.css" />
+        <link rel="stylesheet" href="../styles/style.css" />
         <script
             src="https://kit.fontawesome.com/f300007e95.js"
             crossorigin="anonymous"
         ></script>
-        <script type="module" src="../scripts/modules/favSetup.js"></script>
+        <script type="module" src="../scripts/modules/favPageSetup.js"></script>
     </head>
     <body>
         <header class="header">
-            <h1>test</h1>
             <div class="content-wrapper header__flex">
                 <a href="index.html"
                     ><img
                         class="header__logo"
-                        src="./res/logo.png"
+                        src="../res/logo.svg"
                         alt="logotype"
                 /></a>
             </div>
@@ -26,9 +25,20 @@
 
         <!-- Favorite movies section -->
         <section>
+            <button class="back-button">Back</button>
             <div class="content-wrapper">
-                <h2>Your favorites</h2>
-                <section></section>
+                <h1>Your favorite movies:</h1>
+                <section id="favSection">
+                    <!--
+                    <article class="fav-movie">
+                        <section class="movie__container">
+                            <i class="fa-regular fa-heart movie__icon" id="movieIcon"></i>
+                            <img src=${movie.Poster} alt="Poster – ${movie.Title}" class="movie__poster">
+                        </section>
+                        <h3 class="movie__title">${movie.Title}</h3>
+                    </article>
+                    -->
+                </section>
             </div>
         </section>
     </body>
