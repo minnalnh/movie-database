@@ -1,6 +1,6 @@
 import { getMovies } from '../data/movies.js';
 import { addClass, createElement, getElement } from '../utils/domUtils.js';
-import { favSetup } from './favSetup.js';
+import { favStorage } from './favStorage.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -33,13 +33,8 @@ function createMovieItem(movie) {
         <h3 class="movie__title">${movie.Title}</h3>
     `;
     
-    movieRef.addEventListener('click', (event) => {
-        if(event.target.tagName !== 'I') {
-            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
-        
-        } else if(event.target.tagName === 'I') {
-            favSetup(event, movie);
-        }
+    movieRef.addEventListener('click', () => {
+        addDeleteFav(event, movie);
     });
     
     return movieRef;
@@ -65,7 +60,7 @@ export function likeBtnToggle() {
 
             console.log('lägg till denna film');
         
-            } else {
+            } else if(likeBtnRef.classList.contains('fa-solid')) {
             likeBtnRef.classList.remove('fa-solid');
             likeBtnRef.classList.add('fa-regular');
 
@@ -73,5 +68,14 @@ export function likeBtnToggle() {
             }
         });
     
+    }
+}
+
+export function addDeleteFav(event, movie) {
+    if(event.target.tagName !== 'I') {
+            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+        
+        } else if(event.target.tagName === 'I') {
+            favStorage(event, movie);
     }
 }
