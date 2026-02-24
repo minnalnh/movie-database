@@ -38,7 +38,7 @@ function createMovieItem(movie) {
             location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
         
         } else if(event.target.tagName === 'I') {
-            favSetup(movie);
+            favSetup(event, movie);
         }
     });
     
@@ -70,11 +70,14 @@ export function likeBtnToggle() {
             if(likeBtnRef.classList.contains('fa-regular')) {
             likeBtnRef.classList.remove('fa-regular');
             likeBtnRef.classList.add('fa-solid');
-            
+
+            console.log('lägg till denna film');
         
             } else {
             likeBtnRef.classList.remove('fa-solid');
             likeBtnRef.classList.add('fa-regular');
+
+            console.log('ta bort denna film');
             }
         });
     

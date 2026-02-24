@@ -1,42 +1,34 @@
-export function favSetup(movie) {
-    // console.log(movie);
-    const likeBtnRefs = document.querySelectorAll('#movieIcon');
+export function favSetup(event, movie) {
+    const likeBtnRef = event.target;
 
-    for(let likeBtnRef of likeBtnRefs) {
-        if(likeBtnRef.classList.contains('fa-regular')) {
-
-            console.log('lägg till denna film');
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites.push(movie);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-
-        } else {
-            console.log('ta bort denna film');
-        }
-    }
-
-
-
-}
-
-/*
-export function likeBtnToggle() {
-    const likeBtnRefs = document.querySelectorAll('#movieIcon');
-    
-    for(let likeBtnRef of likeBtnRefs) {
-        likeBtnRef.addEventListener('click', () => {
-
-            if(likeBtnRef.classList.contains('fa-regular')) {
-            likeBtnRef.classList.remove('fa-regular');
-            likeBtnRef.classList.add('fa-solid');
-            
+    if(!likeBtnRef.classList.contains('fa-regular')) {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         
-            } else {
-            likeBtnRef.classList.remove('fa-solid');
-            likeBtnRef.classList.add('fa-regular');
-            }
-        });
-    
+        if(isInFavorites(movie)) {
+            const index = favorites.findIndex(currentMovie => currentMovie.imdbID === movie.imdbID);
+            favorites.splice(index, 1);
+        } else {
+            favorites.push(movie);
+            console.log('test');
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    } else if(likeBtnRef.classList.contains('fa-regular')) {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const index = favorites.findIndex(currentMovie => currentMovie.imdbID === movie.imdbID);
+        favorites.splice(index, 1);
+        
+        localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 }
-*/
+
+function isInFavorites(movie) {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    if(favorites.some(currentMovie => currentMovie.imdbID === movie.imdbID)) {
+        return true;
+
+    } else {
+        return false;
+    }
+}
