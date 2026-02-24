@@ -1,6 +1,6 @@
 import { fetchRecommendedMovies } from './modules/api.js';
 import { getMovies, pushMovies } from './data/movies.js';
-import { likeBtnToggle, goToFavPage, renderMovies } from './modules/gui.js';
+import { likeBtnToggle, renderMovies } from './modules/gui.js';
 import { carousselSetup } from './modules/carousselSetup.js';
 import { searchSetup } from './modules/searchSetup.js';
 
@@ -31,6 +31,4 @@ async function pageSetup() {
     searchSetup();
 
     likeBtnToggle();
-
-    goToFavPage();
 }

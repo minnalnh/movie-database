@@ -17,7 +17,7 @@ export function favSetup(event, movie) {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         const index = favorites.findIndex(currentMovie => currentMovie.imdbID === movie.imdbID);
         favorites.splice(index, 1);
-        
+
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 }
