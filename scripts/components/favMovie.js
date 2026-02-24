@@ -1,5 +1,6 @@
 import { createElement, getElement } from '../utils/domUtils.js';
-import { backToHomePage } from '../modules/gui.js';
+import { backToHomePage, likeBtnToggle } from '../modules/gui.js';
+import { addDeleteFav } from '../modules/gui.js';
 
 export async function getFavMovie(movie) {
 
@@ -22,4 +23,7 @@ export async function getFavMovie(movie) {
 
     backToHomePage();
 
+    likeBtnToggle();
+
+    addDeleteFav();
 }

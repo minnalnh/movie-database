@@ -1,4 +1,4 @@
-export function favSetup(event, movie) {
+export function favStorage(event, movie) {
     const likeBtnRef = event.target;
 
     if(!likeBtnRef.classList.contains('fa-regular')) {
