@@ -1,22 +1,23 @@
-export function favSetup(movie) {
+export function favSetup(event, movie) {
+    // console.log(event.target);
     // console.log(movie);
-    const likeBtnRefs = document.querySelectorAll('#movieIcon');
 
-    for(let likeBtnRef of likeBtnRefs) {
-        if(likeBtnRef.classList.contains('fa-regular')) {
+    const likeBtnRef = event.target;
 
-            console.log('lägg till denna film');
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites.push(movie);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
+    if(!likeBtnRef.classList.contains('fa-regular')) {
+        // console.log('lägg till denna film');
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        favorites.push(movie);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
 
-        } else {
-            console.log('ta bort denna film');
-        }
+    } else {
+        //console.log('ta bort denna film');
+        isInFavorite(movie, favorites);
     }
+}
 
-
-
+function isInFavorite(movie, favorites) {
+    // if(favorites.some(movie))
 }
 
 /*
