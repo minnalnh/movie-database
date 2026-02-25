@@ -1,5 +1,6 @@
 import { getMovies } from '../data/movies.js';
-import { addClass, createElement, getElement } from '../utils/domUtils.js';
+import { getElement } from '../utils/domUtils.js';
+import { createMovieItem } from '../components/createMovieItem.js';
 
 export function renderMovies() {
     const movies = getMovies();
@@ -16,31 +17,6 @@ export function renderMovies() {
         displayedMovies.push(randomMovie);
 
         const movieRef = createMovieItem(displayedMovies[i]);
-
         sectionRef.appendChild(movieRef); 
     }
-}
-
-function createMovieItem(movie) {
-    const movieRef = createElement('article');
-    addClass(movieRef, 'movie');
-
-    movieRef.innerHTML = `
-        <img src=${movie.Poster} alt="Poster – ${movie.Title}" class="movie__poster">
-        <h3 class="movie__title">${movie.Title}</h3>
-    `;
-    
-    movieRef.addEventListener('click', () => {
-        location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
-    });
-    
-    return movieRef;
-}
-
-export function backToHomePage() {
-    const btnRef = getElement('.back-button');
-
-    btnRef.addEventListener('click', () => {
-        location.href = '../index.html';
-    });
 }

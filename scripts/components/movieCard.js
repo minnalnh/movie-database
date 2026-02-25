@@ -1,12 +1,13 @@
-import { pushMovies, getMovies } from '../data/movies.js';
 import { createElement, getElement } from '../utils/domUtils.js';
-import { backToHomePage } from '../modules/gui.js';
 
-export async function getMovieCard(movie) {
+export async function movieCard(movie) {
 
     const cardTemplate = `
         <section class="movie-box-1">
-            <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
+            <section class="movie-box-1__container">
+                <i class="fa-regular fa-heart movie-box-1__icon"></i>
+                <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
+            </section>
             <h2 class="movie-box-1__title">${movie.Title}</h2>
         </section>
         <section class="movie-box-2">
@@ -31,7 +32,5 @@ export async function getMovieCard(movie) {
 
     movieRef.innerHTML = cardTemplate;
     sectionRef.appendChild(movieRef);
-
-    backToHomePage();
 
 }
