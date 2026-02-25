@@ -1,6 +1,6 @@
 import { getElement, createElement } from '../utils/domUtils.js';
 import { fetchMovieSearch } from './api.js';
-import { searchedMovies } from '../components/searchedMovies.js'; // används inte men om jag tar bort den visas inte filmerna som matchar sökresultatet ???
+import { searchedMovies } from '../components/searchedMovies.js';
 
 export async function searchSetup() {
     const listRef = getElement('#searchList');
@@ -14,6 +14,7 @@ export async function searchSetup() {
         if(movies) {
             if(movies.length > 0) {
                 const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
+                //console.log(matching);
                 listRef.innerHTML = '';
 
                 for(let movie of matching) {
@@ -26,7 +27,7 @@ export async function searchSetup() {
                         const clickedMovieRef = event.target.textContent;
                         
                         if(movie.Title === clickedMovieRef) {
-                            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+                            location.href = `/pages/movie.html?plot=full&i=${movie.imdbID}`;
                         }
                     });
                 }
@@ -34,7 +35,7 @@ export async function searchSetup() {
 
                 searchBtnRef.addEventListener('click', (event) => {
                     event.preventDefault();
-                    location.href = `/pages/search.html?apikey=52ddd3cb&s=${searchInput}`;
+                    location.href = `/pages/search.html?s=${searchInput}`;
                 });
             }
         } else if(searchInput === '') {

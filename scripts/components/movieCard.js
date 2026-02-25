@@ -1,6 +1,6 @@
 import { createElement, getElement } from '../utils/domUtils.js';
 
-export async function getMovieCard(movie) {
+export async function movieCard(movie) {
 
     const cardTemplate = `
         <section class="movie-box-1">

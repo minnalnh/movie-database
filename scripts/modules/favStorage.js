@@ -40,30 +40,3 @@ function isInFavorites(movie) {
         return false;
     }
 }
-/*
-export function likeBtnToggle() {
-    const likeBtnRefs = document.querySelectorAll('#movieIcon');
-    
-    for(let likeBtnRef of likeBtnRefs) {
-        likeBtnRef.addEventListener('click', () => {
-
-            if(likeBtnRef.classList.contains('fa-regular')) {
-                likeBtnRef.classList.remove('fa-regular');
-                likeBtnRef.classList.add('fa-solid');
-
-                console.log('lägg till denna film');
-        
-                // funkar inte på startsidan men funkar på söksidan
-            } else if(likeBtnRef.classList.contains('fa-solid')) {
-                likeBtnRef.classList.remove('fa-solid');
-                likeBtnRef.classList.add('fa-regular');
-
-                console.log('ta bort denna film');
-
-                if(window.location.pathname === '/pages/favorites.html') location.reload();
-            }
-        });
-    
-    }
-}
-*/
