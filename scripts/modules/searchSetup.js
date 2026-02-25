@@ -28,7 +28,7 @@ export async function searchSetup() {
                         const clickedMovieRef = event.target.textContent;
                         
                         if(movie.Title === clickedMovieRef) {
-                            location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+                            location.href = `/pages/movie.html?&plot=full&i=${movie.imdbID}`;
                         }
                     });
                 }
@@ -36,7 +36,7 @@ export async function searchSetup() {
 
                 searchBtnRef.addEventListener('click', (event) => {
                     event.preventDefault();
-                    location.href = `/pages/search.html?apikey=52ddd3cb&s=${searchInput}`;
+                    location.href = `/pages/search.html?&s=${searchInput}`;
                 });
             }
         } else if(searchInput === '') {

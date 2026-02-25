@@ -20,17 +20,3 @@ export async function fetchMovieData() {
     const response = await fetch(`http://www.omdbapi.com/?apikey=52ddd3cb&plot=full&i=${imdbID}`);
     return await response.json();
 }
-/*
-
-fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput}`)
-    .then(response => response.json())
-    .then(data => {
-    if(data.Response === 'True') return data.Search;
-});
-*/
-
-// bred sökning:
-// GET http://www.omdbapi.com/?apikey=[yourkey]&s=[söksträng]
-
-// specifik sökning:
-// GET http://www.omdbapi.com/?apikey=[yourkey]&plot=full&i=[imdb-ID]
