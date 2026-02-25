@@ -27,7 +27,7 @@ export async function searchSetup() {
                         const clickedMovieRef = event.target.textContent;
                         
                         if(movie.Title === clickedMovieRef) {
-                            location.href = `/pages/movie.html?plot=full&i=${movie.imdbID}`;
+                            location.href = `/pages/movie.html?plot=full&i=${movie.imdbID}`; // hur funkar detta?
                         }
                     });
                 }

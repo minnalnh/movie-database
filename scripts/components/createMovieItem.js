@@ -25,7 +25,7 @@ export function createMovieItem(movie) {
     
     movieRef.addEventListener('click', (event) => {
         if(event.target.tagName !== 'I') {
-        location.href = `/pages/movie.html?apikey=52ddd3cb&plot=full&i=${movie.imdbID}`;
+            location.href = `/pages/movie.html?plot=full&i=${movie.imdbID}`;
         
         } else if(event.target.tagName === 'I') {
             favStorage(event, movie);

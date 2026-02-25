@@ -1,4 +1,5 @@
 import { createElement, getElement } from '../utils/domUtils.js';
+import { favStorage } from '../modules/favStorage.js';
 
 export async function movieCard(movie) {
 
@@ -32,5 +33,12 @@ export async function movieCard(movie) {
 
     movieRef.innerHTML = cardTemplate;
     sectionRef.appendChild(movieRef);
+
+    const likeBtnRef = getElement('.movie-box-1__icon');
+
+    likeBtnRef.addEventListener('click', (event) => {
+        favStorage(event, movie);
+        
+    });
 
 }
