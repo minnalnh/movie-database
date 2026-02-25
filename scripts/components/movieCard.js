@@ -1,6 +1,4 @@
-import { pushMovies, getMovies } from '../data/movies.js';
 import { createElement, getElement } from '../utils/domUtils.js';
-import { backToHomePage } from '../modules/gui.js';
 
 export async function getMovieCard(movie) {
 
@@ -34,7 +32,5 @@ export async function getMovieCard(movie) {
 
     movieRef.innerHTML = cardTemplate;
     sectionRef.appendChild(movieRef);
-
-    backToHomePage();
 
 }

@@ -20,12 +20,3 @@ export function renderMovies() {
         sectionRef.appendChild(movieRef); 
     }
 }
-
-export function backToHomePage() {
-    const btnRef = getElement('.back-button');
-
-    btnRef.addEventListener('click', () => {
-        location.href = '../../index.html';
-    });
-}
-

@@ -29,6 +29,4 @@ async function pageSetup() {
     carousselSetup(movies);
 
     searchSetup();
-
-    // likeBtnToggle();
 }

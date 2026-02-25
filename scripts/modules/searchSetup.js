@@ -1,9 +1,8 @@
 import { getElement, createElement } from '../utils/domUtils.js';
 import { fetchMovieSearch } from './api.js';
-import { searchedMovies } from '../components/searchedMovies.js'; // ska inte behöva ha kvar denna men om jag tar bort den visas inte filmerna som matchar sökresultatet ???
+import { searchedMovies } from '../components/searchedMovies.js'; // används inte men om jag tar bort den visas inte filmerna som matchar sökresultatet ???
 
 export async function searchSetup() {
-    // const apiKey = '52ddd3cb';
     const listRef = getElement('#searchList');
     const searchRef = getElement('#searchInput');
     
@@ -15,7 +14,6 @@ export async function searchSetup() {
         if(movies) {
             if(movies.length > 0) {
                 const matching = movies.filter(movie => movie.Title.toLowerCase().includes(event.target.value.toLowerCase()));
-                //console.log(matching);
                 listRef.innerHTML = '';
 
                 for(let movie of matching) {
