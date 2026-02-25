@@ -12,7 +12,6 @@ export function favStorage(event, movie) {
             favorites.splice(index, 1);
         } else {
             favorites.push(movie);
-            console.log('test');
         }
         localStorage.setItem('favorites', JSON.stringify(favorites));
 

@@ -25,7 +25,7 @@
 }
 
 body {
-    background-color: var(--night) !important;
+    background-color: var(--night);
     max-width: 100%;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .header__form-btn {
-    background-color: var(--emerald) !important; /* SE ÖVER */
+    background-color: var(--emerald);
     border-radius: 0 2rem 2rem 0;
     height: 100%;
     width: 5rem;
@@ -92,6 +92,8 @@ body {
 .search-list-container {
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .section__search-list {
@@ -123,7 +125,7 @@ body {
 }
 
 .header__fav-btn {
-    color: var(--gold) !important; /* SE ÖVER */
+    color: var(--gold);
     font-family: var(--glass-antiqua);
     text-decoration: none;
     font-size: 1.5rem;
@@ -135,7 +137,7 @@ body {
 
 
 .recmnd__title {
-    color: var(--gold) !important; /* SE ÖVER */
+    color: var(--gold);
     font-family: var(--glass-antiqua);
     font-weight: 400;
     text-align: center;
@@ -146,7 +148,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
+    column-gap: 2.5rem;
+    row-gap: 3rem;
 }
 
 .single-movie {
