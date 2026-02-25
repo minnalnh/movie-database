@@ -11,19 +11,32 @@ export function renderMovies() {
     const moviesTemp = [...movies];
     const displayedMovies = [];
 
-    localStorage.removeItem('homeMovies');
+    //localStorage.removeItem('homeMovies');
     
-    for(let i = 0; i < 20; i++) {
-        // kod hämtad från week-7-lecture-9-feb
-        const randomIndex = Math.floor(Math.random() * moviesTemp.length);
-        const randomMovie = moviesTemp.splice(randomIndex, 1)[0];
-        displayedMovies.push(randomMovie);
+    if(window.location.pathname === '/') {
 
-        const movieRef = createMovieItem(displayedMovies[i]);
-        const movie = displayedMovies[i];
+        for(let i = 0; i < 20; i++) {
+            // kod hämtad från week-7-lecture-9-feb
+            const randomIndex = Math.floor(Math.random() * moviesTemp.length);
+            const randomMovie = moviesTemp.splice(randomIndex, 1)[0];
+            displayedMovies.push(randomMovie);
+    
+            const movie = displayedMovies[i];
+            const movieRef = createMovieItem(movie);
+    
+            sectionRef.appendChild(movieRef);
+    
+            homeMovieStorage(movie);
+        }
+    } else if(window.location.pathname === '/index.html') {
 
-        sectionRef.appendChild(movieRef);
+        const storageMovies = JSON.parse(localStorage.getItem('homeMovies'));
 
-        homeMovieStorage(movie);
+        for(let movie of storageMovies) {
+            const movieRef = createMovieItem(movie);
+            sectionRef.appendChild(movieRef);
+        }
     }
+
+
 }
