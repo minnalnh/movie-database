@@ -34,15 +34,6 @@ export function createMovieItem(movie) {
             favStorage(event, movie);
         }
     });
-    /*
-    const img = getElement('');
-    img.src = movie.Poster;
-
-    img.addEventListener('error', () => {
-        img.src ='../../../res/icons/missing-poster.svg';
-        console.log('funkar');
-    });
-    */
     
     return movieRef;
 }

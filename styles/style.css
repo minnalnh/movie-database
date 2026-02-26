@@ -90,11 +90,18 @@ body {
     width: 5rem;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--corben);
+    color: black;
+}
+
+.header__form-btn:hover {
+    background-color: var(--gold);
 }
 
 .search-list-container {
     position: fixed;
-    bottom: 0;
+    bottom: .5rem;
     right: 0;
     margin-top: 1rem;
     width: 100%;
@@ -142,12 +149,20 @@ body {
     cursor: pointer;
 }
 
+.header__fav-btn:hover {
+    text-decoration: underline;
+}
+
 .search-title, .fav-title {
     color: var(--gold);
     font-family: var(--glass-antiqua);
     font-weight: 400;
     text-align: center;
     margin-bottom: 3rem;
+}
+
+.fav-title {
+    margin-top: 8rem;
 }
 
 .recmnd__title {
@@ -193,6 +208,10 @@ body {
     height: 450px;
 }
 
+.movie-flex:hover {
+    transform: scale(1.07);
+}
+
 .trailer-section {
     margin-top: 6rem;
 }
@@ -207,7 +226,10 @@ body {
 }
 
 #favSection {
+    display: flex;
+    flex-direction: column;
     margin-top: 6rem;
+    row-gap: 2rem;
 }
 
 .movie__poster {
@@ -261,6 +283,9 @@ body {
     font-size: 2rem;
     top: .5rem;
     right: .5rem;
+    background-color: var(--night);
+    padding: .5rem;
+    border-radius: 7px;
 }
 
 .movie-box-2__info {
@@ -316,7 +341,14 @@ body {
         flex-direction: row;
     }
 
-    .movie-flex {
-        place-self: start;
+    #favSection {
+        flex-direction: row;
+
+        .movie-flex {
+            display: block;
+            margin: 0 auto;
+            height: 450px;
+        }
+
     }
 }

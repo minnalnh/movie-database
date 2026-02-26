@@ -10,7 +10,7 @@ export async function movieCard(movie) {
                 <i class="fa-regular fa-heart movie-box-1__icon"></i>
                 <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
             </section>
-            <h2 class="movie-box-1__title">${movie.Title}</h2>
+            <h1 class="movie-box-1__title">${movie.Title}</h1>
             <p class="movie-box-1__year movie-box-1__info">Year: ${movie.Year}</p><br>
             <p class="movie-box-1__genre movie-box-__info">Genre: ${movie.Genre}</p><br>
         </section>
