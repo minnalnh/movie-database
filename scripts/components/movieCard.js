@@ -11,13 +11,13 @@ export async function movieCard(movie) {
                 <img src="${movie.Poster}" alt="Poster – ${movie.Title}" class="movie-box-1__poster">
             </section>
             <h2 class="movie-box-1__title">${movie.Title}</h2>
+            <p class="movie-box-1__year movie-box-1__info">Year: ${movie.Year}</p><br>
+            <p class="movie-box-1__genre movie-box-__info">Genre: ${movie.Genre}</p><br>
         </section>
         <section class="movie-box-2">
-            <p class="movie-box-2__year movie-box-2__info">Year: ${movie.Year}</p><br>
             <p class="movie-box-2__rating movie-box-2__info">Rating: ${movie.Rated}</p><br>
             <p class="movie-box-2__released movie-box-2__info">Release date: ${movie.Released}</p><br>
             <p class="movie-box-2__runtime movie-box-2__info">Runtime: ${movie.Runtime}</p><br>
-            <p class="movie-box-2__genre movie-box-2__info">Genre: ${movie.Genre}</p><br>
             <p class="movie-box-2__director movie-box-2__info">Director: ${movie.Director}</p><br>
             <p class="movie-box-2__writer movie-box-2__info">Writer: ${movie.Writer}</p><br>
             <p class="movie-box-2__actors movie-box-2__info">Actors: ${movie.Actors}</p><br>
