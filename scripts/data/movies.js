@@ -1,3 +1,4 @@
+// funktioner som förbereder och pushar filmdatat i movies-arrayen
 const movies = [];
 
 export function getMovies() {

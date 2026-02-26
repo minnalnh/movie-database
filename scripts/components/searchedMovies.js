@@ -4,9 +4,11 @@ import { createMovieItem } from './createMovieItem.js';
 
 searchedMovies();
 
+// tar fram filmer som matchar sökningen på search.html
 export async function searchedMovies() {
     const queryStr = window.location.search;
     const searchStr = queryStr.substring(19);
+    
     const movies = await fetchMovieSearch(searchStr);
 
     if(movies !== undefined) {

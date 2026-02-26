@@ -10,6 +10,7 @@ export async function fetchMovieSearch(searchInput) {
 }
 
 export async function fetchMovieData() {
+    // fick hjälp av ChatGPT att använda denna metod i stället för den som är bortkommenterad
     const params = new URLSearchParams(window.location.search);
     const imdbID = params.get('i');
     // const queryStr = window.location.search;

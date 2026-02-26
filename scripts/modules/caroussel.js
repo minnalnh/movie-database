@@ -10,7 +10,7 @@ export function renderTrailer(movie, num) {
     // tog hjälp av https://github.com/workadventure/workadventure/issues/3827
     iFrameRef.setAttribute(
         'allow',
-        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen'
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
     );
 
     iFrameRef.setAttribute('allowfullscreen', '');

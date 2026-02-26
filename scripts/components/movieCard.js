@@ -1,6 +1,7 @@
-import { createElement, getElement } from '../utils/domUtils.js';
+import { createElement, getElement, addClass } from '../utils/domUtils.js';
 import { favStorage } from '../modules/favStorage.js';
 
+// filmkort som visas på movie.html
 export async function movieCard(movie) {
 
     const cardTemplate = `
@@ -28,7 +29,8 @@ export async function movieCard(movie) {
     `;
 
     const movieRef = createElement('article');
-    movieRef.classList.add('single-movie', 'movie');
+    addClass(movieRef, 'single-movie');
+    addClass(movieRef, 'movie');
     const sectionRef = getElement('.movie-section');
 
     movieRef.innerHTML = cardTemplate;

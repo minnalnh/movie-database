@@ -1,3 +1,5 @@
+// hjälpfunktioner för en smidigare kodning
+
 export function getElement(selector) {
     return document.querySelector(selector);
 }
