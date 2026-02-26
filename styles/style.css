@@ -76,13 +76,13 @@ body {
 
 .header__input {
     padding: 1rem;
-    border-radius: 2rem 0 0 2rem;
+    border-radius: 0 !important;
     border: none;
 }
 
 .header__form-btn {
     background-color: var(--emerald);
-    border-radius: 0 2rem 2rem 0;
+    border-radius: 0 .5rem .5rem 0 !important;
     height: 100%;
     width: 5rem;
     border: none;
@@ -98,6 +98,7 @@ body {
 
 .section__search-list {
     position: absolute;
+    margin-right: 5rem;
     top: 100%;
     list-style-type: none;
     border: 1px solid white;

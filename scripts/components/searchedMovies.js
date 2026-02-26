@@ -7,9 +7,9 @@ searchedMovies();
 // tar fram filmer som matchar sökningen på search.html
 export async function searchedMovies() {
     const queryStr = window.location.search;
-    const searchStr = queryStr.substring(19);
-    
+    const searchStr = queryStr.substring(3);
     const movies = await fetchMovieSearch(searchStr);
+    console.log(searchStr);
 
     if(movies !== undefined) {
         for(let movie of movies) {
