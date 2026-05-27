@@ -11,6 +11,7 @@
     --night: #0F0F0F;
     --gold: #FFF9BD;
     --emerald:#50C878;
+    --primary-bg: var(--night);
     
     --glass-antiqua: 'Glass Antiqua', serif;
     --gafata: 'Gafata', sans-serif;
@@ -323,7 +324,7 @@ body {
         margin-right: 5rem;
         top: 100%;
         list-style-type: none;
-        border: 1px solid white;
+        border: none;
         width: 50%;
         z-index: 5;
     }
